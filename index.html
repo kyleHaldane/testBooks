@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var apikey_last = "2494552527b96433a18663f6aecde425";
+    //var artist = "beyonce"
+    //var apikey = "fQU6bVCS11U24lKof1eS9g";
+    //var site_similarArtist = "http://ws.audioscrobbler.com/2.0/?method=artist.getsimilar&artist="+artist+"&api_key="+apikey+"&format=json";
+    //var site_similarTracks = "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist="+artist+"&track="+track+"&api_key="+apikey+"&format=json";
+    isbn = "9781632368034";
+    var site_penguin = 'https://reststop.randomhouse.com/resources/titles/'+isbn+'';
+    var site_url
+
+    //Ajax request with the isbn of the above book
+    $.ajax({
+        url: site_penguin,
+        method: "GET",
+        dataType: "JSON"
+    })          
+    .then(function(response){
+        console.log(response);
+        console.log(response.author);
+        console.log(response.subjectcategorydescription1);
+        console.log(response.subjectcategorydescription2);
+        console.log(response.subjectcategorydescription3);
+    });
+
+    //Ajax request with 
+    $.ajax({
+        url: 'https://reststop.randomhouse.com/resources/titles/9780399180194',
+        method: "GET",
+        dataType: "JSON"
+    })          
+    .then(function(response){
+        console.log(response);
+        console.log(response.author);
+        console.log(response.subjectcategorydescription1);
+        console.log(response.subjectcategorydescription2);
+        console.log(response.subjectcategorydescription3);
+    });
+
+    //Ajax request with "The girl on the train" by Paula Hawkins
+    $.ajax({
+        url: 'https://reststop.randomhouse.com/resources/titles/9780735212152',
+        method: "GET",
+        dataType: "JSON"
+    })          
+    .then(function(response){
+        console.log(response);
+        console.log(response.author);
+        console.log(response.subjectcategorydescription1);
+        console.log(response.subjectcategorydescription2);
+        console.log(response.subjectcategorydescription3);
+    });
+</script>
+</body>
+</html>
